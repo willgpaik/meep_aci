@@ -84,10 +84,6 @@ make && make install
 
 cd $TMP
 
-#set environment variable BLAS_LIBS and LAPACK_LIBS.
-export BLAS_LIBS=/opt/aci/sw/blas/3.6.0_gcc-5.3.1/usr/lib64/libblas.so
-export LAPACK_LIBS=/opt/aci/sw/lapack/3.6.0_gcc-5.3.1/usr/lib64/liblapack.so
-
 
 ### Harminv 1.4.1  ###
 wget https://github.com/NanoComp/harminv/releases/download/v1.4.1/harminv-1.4.1.tar.gz
@@ -98,7 +94,7 @@ make && make install
 
 cd $TMP
 
-export HDF5_LIB=/opt/aci/sw/hdf5/1.8.18_gcc-5.3.1/lib64/libhdf5.so
+export HDF5_LIB=/lib64/libhdf5.so
 
 ### MEEP 1.8.0 ###
 wget https://github.com/NanoComp/meep/releases/download/v1.8.0/meep-1.8.0.tar.gz
