@@ -4,10 +4,6 @@
 # Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
 # March 14 2019
 
-module load gcc/5.3.1
-module load blas/3.6.0
-module load lapack/3.6.0
-
 BASE=$PWD
 mkdir -p $BASE/MEEP_build
 BUILD_DIR=$BASE/MEEP_build
@@ -74,8 +70,8 @@ make && make install
 
 cd $TMP
 
-export BLAS_LIBS=/opt/aci/sw/blas/3.6.0_gcc-5.3.1/usr/lib64/libblas.so
-export LAPACK_LIBS=/opt/aci/sw/lapack/3.6.0_gcc-5.3.1/usr/lib64/liblapack.so
+export BLAS_LIBS=/usr/lib64/libblas.so
+export LAPACK_LIBS=/usr/lib64/liblapack.so
 export PATH=$BUILD_DIR/bin:$PATH
 
 
