@@ -3,11 +3,6 @@
 # Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
 # last updated: March 29 2019
 
-module load gcc/5.3.1
-module load blas/3.6.0
-module load lapack/3.6.0
-module load python
-
 BASE=$PWD
 mkdir -p $BASE/meeptmp
 BUILD_DIR=$BASE/MEEP_build
@@ -17,8 +12,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$BUILD_DIR/lib
 export PATH=$PATH:$BUILD_DIR/bin
 export CPATH=$CPATH:$BUILD_DIR/include
 
-export BLAS_LIBS=/opt/aci/sw/blas/3.6.0_gcc-5.3.1/usr/lib64/libblas.so
-export LAPACK_LIBS=/opt/aci/sw/lapack/3.6.0_gcc-5.3.1/usr/lib64/liblapack.so
+export BLAS_LIBS=/usr/lib64/libblas.so
+export LAPACK_LIBS=/usr/lib64/liblapack.so
 
 cd $TMPDIR
 git clone https://github.com/NanoComp/meep.git
