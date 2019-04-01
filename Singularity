@@ -12,7 +12,8 @@ From: shub://willgpaik/centos7_aci:latest
 %post
   yum -y install atlas-devel \
     blas-devel \
-    lapack-devel
+    lapack-devel \
+    libtool-ltdl-devel
     
   mkdir /opt/sw
   cd /opt/sw
