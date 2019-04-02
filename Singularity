@@ -13,7 +13,6 @@ From: shub://willgpaik/centos7_aci:latest
   yum -y install atlas-devel \
     blas-devel \
     lapack-devel \
-    guile-devel \
     libtool-ltdl-devel
     
   mkdir /opt/sw
