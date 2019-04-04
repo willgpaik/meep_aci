@@ -19,46 +19,46 @@ cd gc-8.0.2
 ./configure --prefix=$BUILD_DIR
 make && make install
 
-cd $TMP
+#cd $TMP
 
 ###  gmp 6.1.2  ###
-wget https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz
-tar -xf gmp-6.1.2.tar.xz
-cd gmp-6.1.2
-./configure --prefix=$BUILD_DIR
-make && make install
+#wget https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz
+#tar -xf gmp-6.1.2.tar.xz
+#cd gmp-6.1.2
+#./configure --prefix=$BUILD_DIR
+#make && make install
 
-cd $TMP
+#cd $TMP
 
 ###  zlib 1.2.11  ###
-wget https://zlib.net/zlib-1.2.11.tar.gz
-tar xvzf zlib-1.2.11.tar.gz
-cd zlib-1.2.11
-./configure --prefix=$BUILD_DIR
-make && make install
+#wget https://zlib.net/zlib-1.2.11.tar.gz
+#tar xvzf zlib-1.2.11.tar.gz
+#cd zlib-1.2.11
+#./configure --prefix=$BUILD_DIR
+#make && make install
 
-cd $TMP
+#cd $TMP
 
 ###  libunistring 0.9.9  ###
-wget http://ftp.gnu.org/gnu/libunistring/libunistring-0.9.9.tar.xz
-tar -xf libunistring-0.9.9.tar.xz
-cd libunistring-0.9.9
-./configure --prefix=$BUILD_DIR
-make && make install
+#wget http://ftp.gnu.org/gnu/libunistring/libunistring-0.9.9.tar.xz
+#tar -xf libunistring-0.9.9.tar.xz
+#cd libunistring-0.9.9
+#./configure --prefix=$BUILD_DIR
+#make && make install
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$BUILD_DIR/lib
 export CPATH=$CPATH:$BUILD_DIR/include
 
-cd $TMP
+#cd $TMP
 
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:$BUILD_DIR/lib/pkgconfig
 
 ###  Guile 2.2.4  ###
-wget http://gnu.mirrors.pair.com/guile/guile-2.2.4.tar.gz
-tar xvzf guile-2.2.4.tar.gz
-cd guile-2.2.4
-./configure --prefix=$BUILD_DIR CFLAGS='-I'"$BUILD_DIR"'/include' 
-make && make install
+#wget http://gnu.mirrors.pair.com/guile/guile-2.2.4.tar.gz
+#tar xvzf guile-2.2.4.tar.gz
+#cd guile-2.2.4
+#./configure --prefix=$BUILD_DIR CFLAGS='-I'"$BUILD_DIR"'/include' 
+#make && make install
 
 cd $TMP
 
@@ -66,7 +66,8 @@ cd $TMP
 wget https://github.com/NanoComp/libctl/releases/download/v4.2.0/libctl-4.2.0.tar.gz
 tar xvzf libctl-4.2.0.tar.gz
 cd libctl-4.2.0/
-./configure --enable-shared --prefix=$BUILD_DIR GUILE=$BUILD_DIR/bin/guile GUILE_CONFIG=$BUILD_DIR/bin/guile-config CPPFLAGS='-I'"$BUILD_DIR"'/include'
+#./configure --enable-shared --prefix=$BUILD_DIR GUILE=$BUILD_DIR/bin/guile GUILE_CONFIG=$BUILD_DIR/bin/guile-config CPPFLAGS='-I'"$BUILD_DIR"'/include'
+./configure --enable-shared --prefix=$BUILD_DIR CPPFLAGS='-I'"$BUILD_DIR"'/include'
 make && make install
 
 cd $TMP
