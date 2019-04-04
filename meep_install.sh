@@ -47,6 +47,7 @@ cd libunistring-0.9.9
 make && make install
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$BUILD_DIR/lib
+export CPATH=$CPATH:$BUILD_DIR/include
 
 cd $TMP
 
