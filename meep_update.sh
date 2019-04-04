@@ -19,7 +19,8 @@ cd $TMPDIR
 git clone https://github.com/NanoComp/meep.git
 cd meep
 
-sh autogen.sh --prefix=$BUIDL_DIR GUILE=$BUILD_DIR/bin/guile GUILE_CONFIG=$BUILD_DIR/bin/guile-config CPPFLAGS='-I'"$BUILD_DIR"'/include' LDFLAGS='-L'"$BUILD_DIR"'/lib' -with-libctl=$BUILD_DIR/share/libctl
+#sh autogen.sh --prefix=$BUIDL_DIR GUILE=$BUILD_DIR/bin/guile GUILE_CONFIG=$BUILD_DIR/bin/guile-config CPPFLAGS='-I'"$BUILD_DIR"'/include' LDFLAGS='-L'"$BUILD_DIR"'/lib' -with-libctl=$BUILD_DIR/share/libctl
+sh autogen.sh --prefix=$BUIDL_DIR CPPFLAGS='-I'"$BUILD_DIR"'/include' LDFLAGS='-L'"$BUILD_DIR"'/lib' -with-libctl=$BUILD_DIR/share/libctl --without-python
 
 make
 make install
