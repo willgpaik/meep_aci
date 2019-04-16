@@ -81,7 +81,7 @@ export PATH=$BUILD_DIR/bin:$PATH
 wget https://github.com/NanoComp/mpb/releases/download/v1.8.0/mpb-1.8.0.tar.gz
 tar xvzf mpb-1.8.0.tar.gz
 cd mpb-1.8.0
-./configure --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl
+./configure --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl LDFLAGS=-L$BUILD_DIR/lib CPPFLAGS=-I$BUILD_DIR/include
 make && make install
 
 cd $TMP
