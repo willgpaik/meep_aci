@@ -7,7 +7,7 @@ From: shub://willgpaik/centos7_aci:latest
 
 %environment
   export PATH=$PATH:/opt/sw/MEEP_build/bin
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/sw/MEEP_build/lib
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/sw/MEEP_build/lib:/opt/sw/MEEP_build/lib64
   export CPATH=$CPATH:/opt/sw/MEEP_build/include
 
 %runscript
