@@ -12,4 +12,4 @@ Installed without python support (**--without-python** flag used)
 MPB installation error fixed
 
 2019/4/18  
-Meep updated to version 1.9.0
+Meep updated to version 1.9.0 (with python support)
