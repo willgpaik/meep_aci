@@ -63,6 +63,16 @@ From: shub://willgpaik/centos7_aci:latest
     bzip2-devel        \
     ffmpeg
     
+  cd /tmp
+  git clone https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git
+  cd hdf5/
+  git checkout tags/hdf5-1_10_2
+  ./configure --enable-parallel --enable-shared --prefix=/usr/local CC=/usr/local/bin/mpicc CXX=/usr/local/bin/mpic++
+  make -j 2
+  make -j 2 install
+  cd /tmp
+  rm -rf hdf5
+    
   mkdir /opt/sw
   cd /opt/sw
   wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_install.sh
