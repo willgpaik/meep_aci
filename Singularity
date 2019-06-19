@@ -63,6 +63,7 @@ From: shub://willgpaik/centos7_aci:latest
     bzip2-devel        \
     ffmpeg
     
+  # Install HDF5
   cd /tmp
   git clone https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git
   cd hdf5/
