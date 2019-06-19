@@ -13,3 +13,7 @@ MPB installation error fixed
 
 2019/4/18  
 Meep updated to version 1.9.0 (with python support)
+
+2019/6/19  
+Extra packages are added (based on https://meep.readthedocs.io/en/latest/Build_From_Source/#building-from-source)  
+HDF5 is updated  
