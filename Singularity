@@ -68,7 +68,7 @@ From: shub://willgpaik/centos7_aci:latest
   git clone https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git
   cd hdf5/
   git checkout tags/hdf5-1_10_2
-  ./configure --enable-parallel --enable-shared --prefix=/usr/local CC=/usr/local/bin/mpicc CXX=/usr/local/bin/mpic++
+  ./configure --enable-parallel --enable-shared --prefix=/usr/local CC=/usr/lib64/openmpi/bin/mpicc CXX=/usr/lib64/openmpi/bin/mpic++
   make -j 2
   make -j 2 install
   cd /tmp
