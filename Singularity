@@ -20,6 +20,49 @@ From: shub://willgpaik/centos7_aci:latest
     guile-devel \
     libunistring-devel
     
+  yum -y --enablerepo=extras install epel-release
+  yum -y install   \
+    bison             \
+    byacc             \
+    cscope            \
+    ctags             \
+    cvs               \
+    diffstat          \
+    oxygen            \
+    flex              \
+    gcc               \
+    gcc-c++           \
+    gcc-gfortran      \
+    gettext           \
+    git               \
+    indent            \
+    intltool          \
+    libtool           \
+    patch             \
+    patchutils        \
+    rcs               \
+    redhat-rpm-config \
+    rpm-build         \
+    subversion        \
+    systemtap         \
+    wget
+  yum -y install    \
+    openblas-devel     \
+    fftw3-devel        \
+    libpng-devel       \
+    gsl-devel          \
+    gmp-devel          \
+    pcre-devel         \
+    libtool-ltdl-devel \
+    libunistring-devel \
+    libffi-devel       \
+    gc-devel           \
+    zlib-devel         \
+    openssl-devel      \
+    sqlite-devel       \
+    bzip2-devel        \
+    ffmpeg
+    
   mkdir /opt/sw
   cd /opt/sw
   wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_install.sh
