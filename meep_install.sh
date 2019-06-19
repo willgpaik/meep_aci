@@ -96,7 +96,7 @@ make && make install
 
 cd $TMP
 
-export HDF5_LIB=/usr/local/lib64/libhdf5.so
+export HDF5_LIB=/usr/local/lib/libhdf5.so
 
 ### MEEP 1.9.0 ###
 wget https://github.com/NanoComp/meep/releases/download/v1.9.0/meep-1.9.0.tar.gz
