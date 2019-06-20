@@ -10,7 +10,7 @@ From: shub://willgpaik/centos7_aci:latest
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/sw/MEEP_build/lib:/opt/sw/MEEP_build/lib64
   export CPATH=$CPATH:/opt/sw/MEEP_build/include
   #export PYTHONPATH=$PYTHONPATH:/opt/sw/MEEP_build/lib/python3.6/site-packages
-  export PYTHONPATH=/opt/sw/MEEP_build/lib64/python3.6/site-packages/meep
+  export PYTHONPATH=/opt/sw/MEEP_build/lib64/python3.6/site-packages/
 
 %runscript
 
