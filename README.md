@@ -17,3 +17,9 @@ Meep updated to version 1.9.0 (with python support)
 2019/6/19  
 Extra packages are added (based on https://meep.readthedocs.io/en/latest/Build_From_Source/#building-from-source)  
 HDF5 is updated  
+
+2019/7/30  
+Meep is updated to 1.11.0  
+MPB is updated to 1.9.0  
+libgc is updated to 8.0.4  
+MPI and OpenMP are enabled for Meep
