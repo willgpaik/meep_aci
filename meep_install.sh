@@ -13,7 +13,7 @@ TMP=$BASE/meeptmpdir
 
 cd $TMP
 
-###  libgc 8.0.2  ###
+###  libgc 8.0.4  ###
 wget https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
 tar xvzf gc-8.0.4.tar.gz
 cd gc-8.0.4
