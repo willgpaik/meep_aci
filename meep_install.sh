@@ -1,8 +1,9 @@
 #!/bin/bash
-# Script to install Meep with libgc 8.0.2, GMP 6.1.2, zlib 1.2.11, libunistring 0.9.9,
-# Guile 2.2.4, libctl 4.2.0, MPB 1.8.0, and Harminv 1.4.1
+# Script to install Meep 1.11.0 with libgc 8.0.4, GMP 6.1.2, zlib 1.2.11, libunistring 0.9.9,
+# Guile 2.2.4, libctl 4.2.0, MPB 1.9.0, and Harminv 1.4.1
 # Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
 # March 14 2019
+# Updated: July 30 2019
 
 BASE=$PWD
 mkdir -p $BASE/MEEP_build
@@ -13,9 +14,9 @@ TMP=$BASE/meeptmpdir
 cd $TMP
 
 ###  libgc 8.0.2  ###
-wget https://www.hboehm.info/gc/gc_source/gc-8.0.2.tar.gz
-tar xvzf gc-8.0.2.tar.gz
-cd gc-8.0.2
+wget https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
+tar xvzf gc-8.0.4.tar.gz
+cd gc-8.0.4
 ./configure --prefix=$BUILD_DIR
 make && make install
 
@@ -62,10 +63,10 @@ export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:$BUILD_DIR/lib/pkgconfig
 
 cd $TMP
 
-### libctl 4.2.0 ###
-wget https://github.com/NanoComp/libctl/releases/download/v4.2.0/libctl-4.2.0.tar.gz
-tar xvzf libctl-4.2.0.tar.gz
-cd libctl-4.2.0/
+### libctl 4.3.0 ###
+wget https://github.com/NanoComp/libctl/releases/download/v4.3.0/libctl-4.3.0.tar.gz
+tar xvzf libctl-4.3.0.tar.gz
+cd libctl-4.3.0/
 #./configure --enable-shared --prefix=$BUILD_DIR GUILE=$BUILD_DIR/bin/guile GUILE_CONFIG=$BUILD_DIR/bin/guile-config CPPFLAGS='-I'"$BUILD_DIR"'/include'
 ./configure --enable-shared --prefix=$BUILD_DIR CPPFLAGS='-I'"$BUILD_DIR"'/include'
 make && make install
@@ -77,10 +78,10 @@ export LAPACK_LIBS=/usr/lib64/liblapack.so
 export PATH=$BUILD_DIR/bin:$PATH
 
 
-###  MPB 1.8.0  ##
-wget https://github.com/NanoComp/mpb/releases/download/v1.8.0/mpb-1.8.0.tar.gz
-tar xvzf mpb-1.8.0.tar.gz
-cd mpb-1.8.0
+###  MPB 1.9.0  ##
+wget https://github.com/NanoComp/mpb/releases/download/v1.9.0/mpb-1.9.0.tar.gz
+tar xvzf mpb-1.9.0.tar.gz
+cd mpb-1.9.0
 ./configure --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl LDFLAGS=-L$BUILD_DIR/lib CPPFLAGS=-I$BUILD_DIR/include
 make && make install
 
@@ -98,11 +99,11 @@ cd $TMP
 
 export HDF5_LIB=/usr/local/lib/libhdf5.so
 
-### MEEP 1.9.0 ###
-wget https://github.com/NanoComp/meep/releases/download/v1.9.0/meep-1.9.0.tar.gz
-tar xvzf meep-1.9.0.tar.gz
-cd meep-1.9.0
-./configure --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl PYTHON=python3 #--without-python
+### MEEP 1.11.0 ###
+wget https://github.com/NanoComp/meep/releases/download/v1.11.0/meep-1.11.0.tar.gz
+tar xvzf meep-1.11.0.tar.gz
+cd meep-1.11.0
+./configure --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl PYTHON=python3 #--without-python
 make && make install
 
 
