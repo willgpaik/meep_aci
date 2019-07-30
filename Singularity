@@ -1,5 +1,5 @@
 BootStrap: shub
-From: shub://willgpaik/centos7_aci:latest
+From: willgpaik/centos7_aci:latest
 
 %setup
 
