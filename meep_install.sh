@@ -103,7 +103,7 @@ export HDF5_LIB=/usr/local/lib/libhdf5.so
 wget https://github.com/NanoComp/meep/releases/download/v1.11.0/meep-1.11.0.tar.gz
 tar xvzf meep-1.11.0.tar.gz
 cd meep-1.11.0
-./configure --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl PYTHON=python3 #--without-python
+./configure --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 #--without-python
 make && make install
 
 
