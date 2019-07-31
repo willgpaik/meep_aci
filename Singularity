@@ -65,7 +65,6 @@ From: willgpaik/centos7_aci:latest
     bzip2-devel        \
     ffmpeg
     
-  source /opt/rh/devtoolset-8/enable
   PATH="$PATH:/usr/lib64/openmpi/bin/"
   LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
   MPI_ROOT=/usr/lib64/openmpi/
