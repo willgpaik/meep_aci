@@ -65,7 +65,8 @@ From: willgpaik/centos7_aci:latest
     bzip2-devel        \
     ffmpeg
     
-  source /opt/rh/devtoolset-8/enable
+  source /opt/rh/python27/enable
+  source /opt/rh/rh-python36/enable
   PATH="$PATH:/usr/lib64/openmpi/bin/"
   LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
   MPI_ROOT=/usr/lib64/openmpi/
@@ -79,11 +80,15 @@ From: willgpaik/centos7_aci:latest
   git clone https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git
   cd hdf5/
   git checkout tags/hdf5-1_10_5
-  ./configure --enable-parallel --enable-shared --enable-cxx --prefix=/usr/local CC=/usr/lib64/openmpi/bin/mpicc CXX=/usr/lib64/openmpi/bin/mpic++
+  ./configure --enable-unsupported --enable-cxx --enable-parallel --enable-shared --prefix=/usr/local CC=mpicc CXX=mpic++
   make -j 2
   make install
   cd /tmp
   rm -rf hdf5
+  
+  export PATH=$PATH:/usr/local/bin
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+  export CPATH=$CPATH:/usr/local/include
     
   mkdir /opt/sw
   cd /opt/sw
