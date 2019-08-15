@@ -11,6 +11,8 @@ BUILD_DIR=$BASE/MEEP_build
 mkdir -p $BASE/meeptmpdir
 TMP=$BASE/meeptmpdir
 
+export HDF5_LIB=/usr/local/lib/libhdf5.so
+
 cd $TMP
 
 ###  libgc 8.0.4  ###
@@ -96,8 +98,6 @@ cd harminv-1.4.1/
 make && make install
 
 cd $TMP
-
-export HDF5_LIB=/usr/local/lib/libhdf5.so
 
 ### MEEP 1.11.0 ###
 wget https://github.com/NanoComp/meep/releases/download/v1.11.0/meep-1.11.0.tar.gz
