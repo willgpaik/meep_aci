@@ -23,3 +23,6 @@ Meep is updated to 1.11.0
 MPB is updated to 1.9.0  
 libgc is updated to 8.0.4  
 MPI and OpenMP are enabled for Meep
+
+2019/8/16  
+FFTW is updated to 3.3.8 with MPI for MPB
