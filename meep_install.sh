@@ -3,7 +3,7 @@
 # Guile 2.2.4, libctl 4.2.0, MPB 1.9.0, and Harminv 1.4.1
 # Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
 # March 14 2019
-# Updated: July 30 2019
+# Updated: August 16 2019
 
 BASE=$PWD
 mkdir -p $BASE/MEEP_build
@@ -84,7 +84,8 @@ export PATH=$BUILD_DIR/bin:$PATH
 wget https://github.com/NanoComp/mpb/releases/download/v1.9.0/mpb-1.9.0.tar.gz
 tar xvzf mpb-1.9.0.tar.gz
 cd mpb-1.9.0
-./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl LDFLAGS=-L$BUILD_DIR/lib CPPFLAGS=-I$BUILD_DIR/include
+./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++\
+LDFLAGS=-L$BUILD_DIR/lib CPPFLAGS=-I$BUILD_DIR/include
 make && make install
 
 cd $TMP
