@@ -92,6 +92,9 @@ From: willgpaik/centos7_aci:latest
   tar -xf fftw-3.3.8.tar.gz
   cd fftw-3.3.8
   ./configure --prefix=/usr/local --enable-shared --enable-mpi --enable-openmp --enable-threads CC=mpicc CXX=mpic++
+  make -j 2 && make install
+  cd /tmp
+  rm -rf fftw-3.3.8*
   
   export PATH=$PATH:/usr/local/bin
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
