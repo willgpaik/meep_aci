@@ -86,6 +86,13 @@ From: willgpaik/centos7_aci:latest
   cd /tmp
   rm -rf hdf5
   
+  # Install FFTW 3.3.8
+  cd /tmp
+  wget http://www.fftw.org/fftw-3.3.8.tar.gz
+  tar -xf fftw-3.3.8.tar.gz
+  cd fftw-3.3.8
+  ./configure --prefix=/usr/local --enable-shared --enable-mpi --enable-omp --enable-threads CC=mpicc CXX=mpic++
+  
   export PATH=$PATH:/usr/local/bin
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
   export CPATH=$CPATH:/usr/local/include
