@@ -57,11 +57,11 @@ export CPATH=$CPATH:$BUILD_DIR/include
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:$BUILD_DIR/lib/pkgconfig
 
 ###  Guile 2.2.4  ###
-#wget http://gnu.mirrors.pair.com/guile/guile-2.2.4.tar.gz
-#tar xvzf guile-2.2.4.tar.gz
-#cd guile-2.2.4
-#./configure --prefix=$BUILD_DIR CFLAGS='-I'"$BUILD_DIR"'/include' 
-#make && make install
+wget http://gnu.mirrors.pair.com/guile/guile-2.2.4.tar.gz
+tar xvzf guile-2.2.4.tar.gz
+cd guile-2.2.4
+./configure --prefix=$BUILD_DIR CFLAGS='-I'"$BUILD_DIR"'/include' 
+make && make install
 
 cd $TMP
 
@@ -87,6 +87,11 @@ cd mpb-1.9.0
 ./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ \
 LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
 make && make install
+# rebuild non-MPI version
+make distclean
+./configure --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl \
+LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
+make && make install
 
 cd $TMP
 
@@ -104,7 +109,8 @@ cd $TMP
 wget https://github.com/NanoComp/meep/releases/download/v1.11.0/meep-1.11.0.tar.gz
 tar xvzf meep-1.11.0.tar.gz
 cd meep-1.11.0
-./configure --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
+# error 
+./configure --prefix=$BUILD_DIR --without-scheme --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
 LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
 make && make install
 
