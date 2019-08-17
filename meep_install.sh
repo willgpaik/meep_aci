@@ -84,8 +84,8 @@ export PATH=$BUILD_DIR/bin:$PATH
 wget https://github.com/NanoComp/mpb/releases/download/v1.9.0/mpb-1.9.0.tar.gz
 tar xvzf mpb-1.9.0.tar.gz
 cd mpb-1.9.0
-./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++\
-LDFLAGS=-L$BUILD_DIR/lib CPPFLAGS=-I$BUILD_DIR/include
+./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ \
+LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
 make && make install
 
 cd $TMP
