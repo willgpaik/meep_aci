@@ -26,3 +26,7 @@ MPI and OpenMP are enabled for Meep
 
 2019/8/16  
 FFTW is updated to 3.3.8 with MPI for MPB
+
+2019/8/17  
+Guile is updated to 2.2.4  
+MPB MPI and non-MPI versions are installed
