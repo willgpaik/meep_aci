@@ -56,6 +56,7 @@ export CPATH=$CPATH:$BUILD_DIR/include
 
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:$BUILD_DIR/lib/pkgconfig
 
+# MEEP python requires newer version of Guile: https://github.com/NanoComp/meep/issues/938
 ###  Guile 2.2.4  ###
 wget http://gnu.mirrors.pair.com/guile/guile-2.2.4.tar.gz
 tar xvzf guile-2.2.4.tar.gz
@@ -87,7 +88,7 @@ cd mpb-1.9.0
 ./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ \
 LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
 make && make install
-# rebuild non-MPI version
+# rebuild for non-MPI version
 make distclean
 ./configure --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl \
 LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
