@@ -111,7 +111,7 @@ wget https://github.com/NanoComp/meep/releases/download/v1.11.0/meep-1.11.0.tar.
 tar xvzf meep-1.11.0.tar.gz
 cd meep-1.11.0
 # error 
-./configure --prefix=$BUILD_DIR --without-scheme --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
+./configure --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
 LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
 make && make install
 
