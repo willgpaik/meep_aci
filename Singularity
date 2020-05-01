@@ -11,6 +11,14 @@ From: willgpaik/centos7_aci:latest
   export CPATH=$CPATH:/opt/sw/MEEP_build/include
   #export PYTHONPATH=$PYTHONPATH:/opt/sw/MEEP_build/lib/python3.6/site-packages
   export PYTHONPATH=/opt/sw/MEEP_build/lib64/python3.6/site-packages/
+  
+  source /opt/rh/python27/enable
+  PATH="$PATH:/usr/lib64/openmpi/bin/"
+  LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
+  MPI_ROOT=/usr/lib64/openmpi/
+  export PATH
+  export LD_LIBRARY_PATH
+  export MPI_ROOT
 
 %runscript
 
@@ -66,7 +74,6 @@ From: willgpaik/centos7_aci:latest
     ffmpeg
     
   source /opt/rh/python27/enable
-  source /opt/rh/rh-python36/enable
   PATH="$PATH:/usr/lib64/openmpi/bin/"
   LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
   MPI_ROOT=/usr/lib64/openmpi/
