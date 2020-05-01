@@ -30,3 +30,10 @@ FFTW is updated to 3.3.8 with MPI for MPB
 2019/8/17  
 Guile is updated to 2.2.4  
 MPB MPI and non-MPI versions are installed
+
+2020/5/1  
+Guile is updated to 3.0.2
+Meep is updated to 1.14.0  
+MPB is updated to 1.10.0  
+libctl is updated to 4.5.0  
+Minor updates on Singularity recipe
