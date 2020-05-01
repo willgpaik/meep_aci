@@ -1,9 +1,9 @@
 #!/bin/bash
-# Script to install Meep 1.11.0 with libgc 8.0.4, GMP 6.1.2, zlib 1.2.11, libunistring 0.9.9,
-# Guile 2.2.4, libctl 4.2.0, MPB 1.9.0, and Harminv 1.4.1
+# Script to install Meep 1.14.0 with libgc 8.0.4, GMP 6.1.2, zlib 1.2.11, libunistring 0.9.9,
+# Guile 3.0.2, libctl 4.5.0, MPB 1.10.0, and Harminv 1.4.1
 # Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
 # March 14 2019
-# Updated: August 16 2019
+# Updated: May 1 2020
 
 BASE=$PWD
 mkdir -p $BASE/MEEP_build
@@ -57,19 +57,19 @@ export CPATH=$CPATH:$BUILD_DIR/include
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:$BUILD_DIR/lib/pkgconfig
 
 # MEEP python requires newer version of Guile: https://github.com/NanoComp/meep/issues/938
-###  Guile 2.2.4  ###
-wget http://gnu.mirrors.pair.com/guile/guile-2.2.4.tar.gz
-tar xvzf guile-2.2.4.tar.gz
-cd guile-2.2.4
+###  Guile 3.0.2  ###
+wget https://ftp.gnu.org/gnu/guile/guile-3.0.2.tar.gz
+tar xvzf guile-3.0.2.tar.gz
+cd guile-3.0.2
 ./configure --prefix=$BUILD_DIR CFLAGS='-I'"$BUILD_DIR"'/include' 
 make && make install
 
 cd $TMP
 
-### libctl 4.3.0 ###
-wget https://github.com/NanoComp/libctl/releases/download/v4.3.0/libctl-4.3.0.tar.gz
-tar xvzf libctl-4.3.0.tar.gz
-cd libctl-4.3.0/
+### libctl 4.5.0 ###
+wget https://github.com/NanoComp/libctl/archive/v4.5.0.tar.gz
+tar xvzf v4.5.0.tar.gz
+cd libctl-4.5.0/
 #./configure --enable-shared --prefix=$BUILD_DIR GUILE=$BUILD_DIR/bin/guile GUILE_CONFIG=$BUILD_DIR/bin/guile-config CPPFLAGS='-I'"$BUILD_DIR"'/include'
 ./configure --enable-shared --prefix=$BUILD_DIR CPPFLAGS='-I'"$BUILD_DIR"'/include'
 make && make install
@@ -81,10 +81,10 @@ export LAPACK_LIBS=/usr/lib64/liblapack.so
 export PATH=$BUILD_DIR/bin:$PATH
 
 
-###  MPB 1.9.0  ##
-wget https://github.com/NanoComp/mpb/releases/download/v1.9.0/mpb-1.9.0.tar.gz
-tar xvzf mpb-1.9.0.tar.gz
-cd mpb-1.9.0
+###  MPB 1.10.0  ##
+wget https://github.com/NanoComp/mpb/archive/v1.10.0.tar.gz
+tar xvzf v1.10.0.tar.gz
+cd mpb-1.10.0
 ./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ \
 LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
 make && make install
@@ -106,10 +106,10 @@ make && make install
 
 cd $TMP
 
-### MEEP 1.11.0 ###
-wget https://github.com/NanoComp/meep/releases/download/v1.11.0/meep-1.11.0.tar.gz
-tar xvzf meep-1.11.0.tar.gz
-cd meep-1.11.0
+### MEEP 1.14.0 ###
+wget https://github.com/NanoComp/meep/archive/v1.14.0.tar.gz
+tar xvzf v1.14.0.tar.gz
+cd meep-1.14.0
 # error 
 ./configure --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
 LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
