@@ -110,7 +110,7 @@ cd $TMP
 wget https://github.com/NanoComp/meep/archive/v1.14.0.tar.gz
 tar xvzf v1.14.0.tar.gz
 cd meep-1.14.0
-./autogen.sh --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
+./autogen.sh --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl='$BUILD_DIR'/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
 LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
 make && make install
 
