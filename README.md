@@ -37,3 +37,6 @@ Meep is updated to 1.14.0
 MPB is updated to 1.10.0  
 libctl is updated to 4.5.0  
 Minor updates on Singularity recipe
+
+2020/5/2  
+libGDSII and h5utils are added
