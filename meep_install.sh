@@ -71,7 +71,7 @@ wget https://github.com/NanoComp/libctl/archive/v4.5.0.tar.gz
 tar xvzf v4.5.0.tar.gz
 cd libctl-4.5.0/
 #./configure --enable-shared --prefix=$BUILD_DIR GUILE=$BUILD_DIR/bin/guile GUILE_CONFIG=$BUILD_DIR/bin/guile-config CPPFLAGS='-I'"$BUILD_DIR"'/include'
-./configure --enable-shared --prefix=$BUILD_DIR CPPFLAGS='-I'"$BUILD_DIR"'/include'
+./autogen.sh --enable-shared --prefix=$BUILD_DIR CPPFLAGS='-I'"$BUILD_DIR"'/include'
 make && make install
 
 cd $TMP
@@ -85,12 +85,12 @@ export PATH=$BUILD_DIR/bin:$PATH
 wget https://github.com/NanoComp/mpb/archive/v1.10.0.tar.gz
 tar xvzf v1.10.0.tar.gz
 cd mpb-1.10.0
-./configure --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ \
+./autogen.sh --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ \
 LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
 make && make install
 # rebuild for non-MPI version
 make distclean
-./configure --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl \
+./autogen.sh --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl \
 LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
 make && make install
 
@@ -110,7 +110,7 @@ cd $TMP
 wget https://github.com/NanoComp/meep/archive/v1.14.0.tar.gz
 tar xvzf v1.14.0.tar.gz
 cd meep-1.14.0
-./autogen.sh --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl='$BUILD_DIR'/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
+./autogen.sh --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
 LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
 make && make install
 
