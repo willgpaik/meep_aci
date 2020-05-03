@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script to install Meep 1.14.0 with libgc 8.0.4, GMP 6.1.2, zlib 1.2.11, libunistring 0.9.9,
-# Guile 3.0.2, libctl 4.5.0, MPB 1.10.0, and Harminv 1.4.1
+# Guile 3.0.2, libctl 4.5.0, MPB 1.10.0, libGDSII, h5utils 1.13.1, and Harminv 1.4.1
 # Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
 # March 14 2019
 # Updated: May 1 2020
@@ -96,6 +96,21 @@ make && make install
 
 cd $TMP
 
+### libGDSII ###
+git clone https://github.com/HomerReid/libGDSII.git
+cd libGDSII/
+./autogen.sh --enable-shared --prefix=$BUILD_DIR
+make && sudo make install
+
+cd $TMP
+
+### h5utils 1.13.1 ###
+wget https://github.com/NanoComp/h5utils/archive/1.13.1.tar.gz
+tar -xf 1.13.1.tar.gz
+cd h5utils-1.13.1
+./autogen.sh --enable-shared CC=mpicc 
+
+cd $TMP
 
 ### Harminv 1.4.1  ###
 wget https://github.com/NanoComp/harminv/releases/download/v1.4.1/harminv-1.4.1.tar.gz
