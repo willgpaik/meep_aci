@@ -98,12 +98,12 @@ wget https://github.com/NanoComp/mpb/archive/v1.10.0.tar.gz
 tar xvzf v1.10.0.tar.gz
 cd mpb-1.10.0
 ./autogen.sh --enable-shared --prefix=$BUILD_DIR --with-mpi --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ \
-LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
+LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include" --with-hermitian-eps
 make -j 2 && make install
 # rebuild for non-MPI version
 make distclean
 ./autogen.sh --enable-shared --prefix=$BUILD_DIR --with-libctl=$BUILD_DIR/share/libctl \
-LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include"
+LDFLAGS="-L$BUILD_DIR/lib -L/usr/local/lib" CPPFLAGS="-I$BUILD_DIR/include -I/usr/local/include" --with-hermitian-eps
 make -j 2 && make install
 
 cd $TMP
@@ -112,7 +112,7 @@ cd $TMP
 git clone https://github.com/HomerReid/libGDSII.git
 cd libGDSII/
 ./autogen.sh --enable-shared --prefix=$BUILD_DIR
-make -j 2 && sudo make install
+make -j 2 && make install
 
 cd $TMP
 
@@ -120,7 +120,7 @@ cd $TMP
 wget https://github.com/NanoComp/h5utils/archive/1.13.1.tar.gz
 tar -xf 1.13.1.tar.gz
 cd h5utils-1.13.1
-./autogen.sh --enable-shared CC=mpicc 
+./autogen.sh --enable-shared CC=mpicc --prefix=$BUILD_DIR
 make -j 2 && make install
 
 cd $TMP
