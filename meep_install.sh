@@ -70,9 +70,9 @@ export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:$BUILD_DIR/lib/pkgconfig
 
 # MEEP python requires newer version of Guile: https://github.com/NanoComp/meep/issues/938
 ###  Guile 3.0.2  ###
-wget https://ftp.gnu.org/gnu/guile/guile-3.0.2.tar.gz
-tar xvzf guile-3.0.2.tar.gz
-cd guile-3.0.2
+wget https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.gz
+tar xvzf guile-2.2.7.tar.gz
+cd guile-2.2.7
 ./configure --prefix=$BUILD_DIR CFLAGS='-I'"$BUILD_DIR"'/include' 
 make -j 2 && make install
 
