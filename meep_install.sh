@@ -28,11 +28,11 @@ make -j 2 && make install
 cd $TMP
 
 ###  libgc 8.0.4  ###
-wget https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
-tar xvzf gc-8.0.4.tar.gz
-cd gc-8.0.4
-./configure --prefix=$BUILD_DIR
-make -j 2 && make install
+#wget https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
+#tar xvzf gc-8.0.4.tar.gz
+#cd gc-8.0.4
+#./configure --prefix=$BUILD_DIR
+#make -j 2 && make install
 
 #cd $TMP
 
