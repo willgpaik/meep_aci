@@ -61,8 +61,8 @@ make -j 2 && make install
 #./configure --prefix=$BUILD_DIR
 #make && make install
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$BUILD_DIR/lib:$BUILD_DIR/lib64
-export CPATH=$CPATH:$BUILD_DIR/include
+export LD_LIBRARY_PATH=$BUILD_DIR/lib:$BUILD_DIR/lib64:$LD_LIBRARY_PATH
+export CPATH=$BUILD_DIR/include:$CPATH
 
 #cd $TMP
 
