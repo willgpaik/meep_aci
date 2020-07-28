@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to install Meep 1.14.0 with libgc 8.0.4, GMP 6.1.2, zlib 1.2.11, libunistring 0.9.9,
+# Script to install Meep 1.15.0 with libgc 8.0.4, GMP 6.1.2, zlib 1.2.11, libunistring 0.9.9,
 # swig 3.0.12, mpi4py 3.0.0, h5py 2.8.0,
 # Guile 3.0.2, libctl 4.5.0, MPB 1.10.0, libGDSII, h5utils 1.13.1, and Harminv 1.4.1
 # Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
@@ -155,10 +155,10 @@ python3 setup.py install
 
 cd $TMP
 
-### MEEP 1.14.0 ###
-wget https://github.com/NanoComp/meep/archive/v1.14.0.tar.gz
-tar xvzf v1.14.0.tar.gz
-cd meep-1.14.0
+### MEEP 1.15.0 ###
+wget https://github.com/NanoComp/meep/archive/v1.15.0.tar.gz
+tar xvzf v1.15.0.tar.gz
+cd meep-1.15.0
 ./autogen.sh --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
 LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
 make -j 2 && make install
