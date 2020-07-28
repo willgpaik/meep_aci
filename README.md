@@ -43,3 +43,6 @@ libGDSII and h5utils are added
 
 2020/5/20  
 swig 3.0.12, mpi4py 3.0.0, and h5py 2.8.0 are added
+
+2020/7/28  
+Meep is updated to 1.15.0
