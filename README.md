@@ -46,3 +46,7 @@ swig 3.0.12, mpi4py 3.0.0, and h5py 2.8.0 are added
 
 2020/7/28  
 Meep is updated to 1.15.0
+
+2025/10/27  
+Updated to Rockylinux 9 based  
+Meep is updated to 1.31.0

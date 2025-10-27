@@ -52,7 +52,7 @@ From: rockylinux/rockylinux:9-ubi-init
     vim               \
     wget
   dnf -y install    \
-    guile30-devel      \
+    guile22-devel      \
     blas-devel         \
     cmake              \
     lapack-devel       \
@@ -75,6 +75,8 @@ From: rockylinux/rockylinux:9-ubi-init
     bzip2-devel        \
     ffmpeg-free-devel
     
+  ln -s /usr/bin/guile2.2 /usr/bin/guile
+  ln -s /usr/bin/guile-config2.2 /usr/bin/guile-config
   PATH="$PATH:/usr/lib64/openmpi/bin/"
   LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
   MPI_ROOT=/usr/lib64/openmpi/
@@ -84,7 +86,7 @@ From: rockylinux/rockylinux:9-ubi-init
 
   mkdir /opt/sw
   cd /opt/sw
-  wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_install.sh
+  wget https://raw.githubusercontent.com/willgpaik/meep_aci/refs/heads/master/meep_install.sh
   #wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_update.sh
   
   chmod +x meep_install.sh
