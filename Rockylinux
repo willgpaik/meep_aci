@@ -1,0 +1,96 @@
+BootStrap: docker
+From: rockylinux/rockylinux:9-ubi-init
+
+%setup
+
+%files
+
+%environment
+  export PATH=$PATH:/opt/sw/MEEP_build/bin
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/sw/MEEP_build/lib:/opt/sw/MEEP_build/lib64
+  export CPATH=$CPATH:/opt/sw/MEEP_build/include
+  #export PYTHONPATH=/opt/sw/MEEP_build/lib64/python3.6/site-packages/
+  
+  PATH="$PATH:/usr/lib64/openmpi/bin/"
+  LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
+  MPI_ROOT=/usr/lib64/openmpi/
+  export PATH
+  export LD_LIBRARY_PATH
+  export MPI_ROOT
+
+%runscript
+
+%post
+  dnf -y install 'dnf-command(config-manager)'
+  dnf config-manager --set-enabled crb
+  dnf -y install epel-release
+  dnf -y install   \
+    bison             \
+    byacc             \
+    cscope            \
+    ctags             \
+    cvs               \
+    diffstat          \
+    flex              \
+    gcc               \
+    gcc-c++           \
+    gcc-gfortran      \
+    gettext           \
+    git               \
+    gmp-devel         \
+    indent            \
+    intltool          \
+    libtool           \
+    openmpi-devel     \
+    patch             \
+    patchutils        \
+    rcs               \
+    redhat-rpm-config \
+    rpm-build         \
+    subversion        \
+    systemtap         \
+    vim               \
+    wget
+  dnf -y install    \
+    blas-devel         \
+    cmake              \
+    lapack-devel       \
+    hdf5-devel         \
+    hdf5-openmpi-devel \
+    swig               \
+    openblas-devel     \
+    fftw3-devel        \
+    libpng-devel       \
+    gsl-devel          \
+    gmp-devel          \
+    pcre-devel         \
+    libtool-ltdl-devel \
+    libunistring-devel \
+    libffi-devel       \
+    gc-devel           \
+    zlib-devel         \
+    openssl-devel      \
+    sqlite-devel       \
+    bzip2-devel        \
+    ffmpeg-free-devel
+    
+  PATH="$PATH:/usr/lib64/openmpi/bin/"
+  LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
+  MPI_ROOT=/usr/lib64/openmpi/
+  export PATH
+  export LD_LIBRARY_PATH
+  export MPI_ROOT
+
+  #mkdir /opt/sw
+  #cd /opt/sw
+  #wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_install.sh
+  #wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_update.sh
+  
+  #chmod +x meep_install.sh
+  #chmod +x meep_update.sh
+  
+  #./meep_install.sh
+  #./meep_update.sh
+  
+  #rm meep_install.sh meep_update.sh
+  #rm meep_install.sh
