@@ -52,6 +52,7 @@ From: rockylinux/rockylinux:9-ubi-init
     vim               \
     wget
   dnf -y install    \
+    guile30-devel      \
     blas-devel         \
     cmake              \
     lapack-devel       \
@@ -81,16 +82,16 @@ From: rockylinux/rockylinux:9-ubi-init
   export LD_LIBRARY_PATH
   export MPI_ROOT
 
-  #mkdir /opt/sw
-  #cd /opt/sw
-  #wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_install.sh
+  mkdir /opt/sw
+  cd /opt/sw
+  wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_install.sh
   #wget https://raw.githubusercontent.com/willgpaik/meep_aci/master/meep_update.sh
   
-  #chmod +x meep_install.sh
+  chmod +x meep_install.sh
   #chmod +x meep_update.sh
   
-  #./meep_install.sh
+  ./meep_install.sh
   #./meep_update.sh
   
   #rm meep_install.sh meep_update.sh
-  #rm meep_install.sh
+  rm meep_install.sh

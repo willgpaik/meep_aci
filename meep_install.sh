@@ -20,16 +20,6 @@ cd $TMP
 
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:$BUILD_DIR/lib/pkgconfig
 
-# MEEP python requires newer version of Guile: https://github.com/NanoComp/meep/issues/938
-###  Guile 3.0.10  ###
-wget https://ftp.gnu.org/gnu/guile/guile-3.0.10.tar.gz
-tar xvzf guile-3.0.10.tar.gz
-cd guile-3.0.10
-./configure --prefix=$BUILD_DIR #CFLAGS='-I'"$BUILD_DIR"'/include' 
-make -j 4 && make install
-
-cd $TMP
-
 ### libctl 4.5.1 ###
 wget https://github.com/NanoComp/libctl/archive/v4.5.1.tar.gz
 tar xvzf v4.5.1.tar.gz
