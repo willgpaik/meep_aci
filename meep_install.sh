@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script to install Meep 1.31.0 with mpi4py, h5py, Guile 3.0.10, libctl 4.5.1, 
 # MPB 1.12.0, libGDSII, h5utils 1.13.2, and Harminv 1.4.2
-# Written by Ghanghoon "Will" Paik (gip5038@psu.edu)
+# Written by Ghanghoon "Will" Paik
 # March 14 2019
 # Updated: Oct 27 2025
 
@@ -11,7 +11,7 @@ BUILD_DIR=$BASE/MEEP_build
 mkdir -p $BASE/meeptmpdir
 TMP=$BASE/meeptmpdir
 
-export HDF5_LIB=/usr/local/lib/libhdf5.so
+#export HDF5_LIB=/usr/local/lib/libhdf5.so
 
 export LD_LIBRARY_PATH=$BUILD_DIR/lib:$BUILD_DIR/lib64:$LD_LIBRARY_PATH
 export CPATH=$BUILD_DIR/include:$CPATH
@@ -29,8 +29,8 @@ make -j 4 && make install
 
 cd $TMP
 
-export BLAS_LIBS=/usr/lib64/libblas.so
-export LAPACK_LIBS=/usr/lib64/liblapack.so
+#export BLAS_LIBS=/usr/lib64/libblas.so
+#export LAPACK_LIBS=/usr/lib64/liblapack.so
 export PATH=$BUILD_DIR/bin:$PATH
 
 ###  MPB 1.12.0  ##
@@ -72,16 +72,26 @@ cd harminv-1.4.2/
 ./configure --enable-shared --prefix=$BUILD_DIR
 make -j 4 && make install
 
-
 cd $TMP
 
 ### mpi4py ###
-pip install mpi4py
+#pip install mpi4py
+wget https://github.com/mpi4py/mpi4py/archive/refs/tags/4.1.1.tar.gz
+tar -xf 4.1.1.tar.gz
+cd mpi4py-4.1.1
+python3 setup.py build
+python3 setup.py install
 
 cd $TMP
 
 ### h5py ###
-pip install h5py
+#pip install h5py
+wget https://github.com/h5py/h5py/archive/refs/tags/3.15.1.tar.gz
+tar -xf 3.15.1.tar.gz
+cd h5py-3.15.1
+python3 setup.py configure --mpi
+python3 setup.py build
+python3 setup.py install
 
 cd $TMP
 
@@ -89,10 +99,9 @@ cd $TMP
 wget https://github.com/NanoComp/meep/archive/v1.31.0.tar.gz
 tar xvzf v1.31.0.tar.gz
 cd meep-1.31.0
-./autogen.sh --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl CC=mpicc CXX=mpic++ PYTHON=python3 \
+./autogen.sh --prefix=$BUILD_DIR --with-mpi --with-openmp --with-libctl=$BUILD_DIR/share/libctl --enable-shared CC=mpicc CXX=mpic++ PYTHON=python3 \
 LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
 make -j 4 && make install
-
 
 cd $BASE
 rm -rf meeptmpdir

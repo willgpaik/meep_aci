@@ -9,14 +9,13 @@ From: rockylinux/rockylinux:9-ubi-init
   export PATH=$PATH:/opt/sw/MEEP_build/bin
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/sw/MEEP_build/lib:/opt/sw/MEEP_build/lib64
   export CPATH=$CPATH:/opt/sw/MEEP_build/include
-  #export PYTHONPATH=/opt/sw/MEEP_build/lib64/python3.6/site-packages/
   
   PATH="$PATH:/usr/lib64/openmpi/bin/"
   LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
   MPI_ROOT=/usr/lib64/openmpi/
-  export PATH
-  export LD_LIBRARY_PATH
-  export MPI_ROOT
+  #export PATH
+  #export LD_LIBRARY_PATH
+  #export MPI_ROOT
 
 %runscript
 
@@ -40,15 +39,18 @@ From: rockylinux/rockylinux:9-ubi-init
     gmp-devel         \
     indent            \
     intltool          \
+    libgomp           \
     libtool           \
-    openmpi-devel     \
     patch             \
     patchutils        \
+    pmix-devel        \
+    python3-devel     \
     rcs               \
     redhat-rpm-config \
     rpm-build         \
     subversion        \
     systemtap         \
+    ucx-devel         \
     vim               \
     wget
   dnf -y install    \
@@ -73,16 +75,24 @@ From: rockylinux/rockylinux:9-ubi-init
     openssl-devel      \
     sqlite-devel       \
     bzip2-devel        \
-    ffmpeg-free-devel
-    
+    ffmpeg-free-devel    
+
+  cd /tmp
+  wget https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.8.tar.gz
+  tar -xf openmpi-5.0.8.tar.gz
+  cd openmpi-5.0.8
+  ./configure --with-pmix
+  make -j 4
+  make install
+
   ln -s /usr/bin/guile2.2 /usr/bin/guile
   ln -s /usr/bin/guile-config2.2 /usr/bin/guile-config
   PATH="$PATH:/usr/lib64/openmpi/bin/"
   LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/"
   MPI_ROOT=/usr/lib64/openmpi/
-  export PATH
-  export LD_LIBRARY_PATH
-  export MPI_ROOT
+  #export PATH
+  #export LD_LIBRARY_PATH
+  #export MPI_ROOT
 
   mkdir /opt/sw
   cd /opt/sw
